@@ -2,7 +2,7 @@
   var WHATSAPP = "584160702282"; // 0416 070 22 82 en formato internacional
   // URL de la aplicación web de Google Apps Script (ver google-sheets/README.md). Termina en /exec
   var SHEET_URL = "";
-  var WEDDING = Date.UTC(2027, 0, 9, 20, 0, 0); // 9 ene 2027, 4 p.m. hora de Venezuela (UTC-4)
+  var WEDDING = Date.UTC(2027, 0, 9, 21, 0, 0); // 9 ene 2027, 5 p.m. hora de Venezuela (UTC-4)
 
   // Sobre: tapa la invitación y bloquea el scroll hasta que se abre.
   // Sello (0–0,4 s) -> solapa (0,3–1,2 s) -> bolsillo baja e invitación sube (1–2,3 s)

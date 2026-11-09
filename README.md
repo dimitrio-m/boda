@@ -1,6 +1,6 @@
-# Boda de Dimitrios y Kaliana
+# Boda de Kaliana y Dimitrios
 
-Invitación web para la boda del **sábado 9 de enero de 2027**, Hotel Belensate, Urb. La Hacienda, Mérida, 4 p.m.
+Invitación web para la boda del **sábado 9 de enero de 2027**, Hotel Belensate, Urb. La Hacienda, Mérida, 5 p.m.
 
 Es una página estática (HTML, CSS y JavaScript) sin dependencias ni paso de compilación.
 

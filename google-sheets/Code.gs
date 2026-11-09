@@ -1,6 +1,6 @@
 /**
  * @OnlyCurrentDoc
- * Confirmaciones de la boda de Dimitrios y Kaliana.
+ * Confirmaciones de la boda de Kaliana y Dimitrios.
  *
  * Recibe el formulario de la web (botón "Enviar confirmación") y:
  *   - anota cada envío en la pestaña "Respuestas",
