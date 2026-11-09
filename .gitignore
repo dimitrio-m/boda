@@ -1,0 +1,19 @@
+# Sistema
+.DS_Store
+
+# Originales grandes que la web no usa (se quedan en el Mac, no se suben)
+img/arch.PNG
+img/arch-web.png
+img/side branch.jpeg
+img/single branch.jpeg
+img/white-paper-texture.jpg
+img/Tezza-1283.JPG
+img/Tezza-6541.JPG
+img/Mediterranean Olive Garden Fountain Frame.png
+img/Classical Watercolour Garden Invitation Frame.png
+img/Mediterranean Botanical Wedding Frame.png
+audio/lenspulse-foley-paper-handling-amp-page-turning-sfx-584919.mp3
+audio/prettyjohn1-wedding-wedding-music_35sec-487336.mp3
+
+# Archivos temporales de pruebas
+_t*.html
