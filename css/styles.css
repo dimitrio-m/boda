@@ -358,7 +358,7 @@ html.doodles .doodle.drawn { stroke-dashoffset: 0; }
 .timeline { position: relative; list-style: none; margin: 1.2rem 0 -1rem; padding: 0; height: clamp(28rem, 128cqw, 34rem); }
 .tl-pour { position: absolute; top: 0; left: 50%; height: 100%; width: auto; transform: translateX(-46.5%); opacity: .9; pointer-events: none; }
 .tl-item { text-align: left; position: absolute; display: flex; align-items: center; gap: .55rem; max-width: calc(50% - 1rem); }
-.tl-left { right: calc(53.5% + .9rem); }
+.tl-left { right: calc(53.5% + .9rem); width: calc(46.5% - 1.4rem); }
 .tl-right { left: calc(46.5% + 2rem); }
 .tl-1 { top: 15%; }
 .tl-2 { top: 28%; }
