@@ -369,6 +369,7 @@ html.doodles .doodle.drawn { stroke-dashoffset: 0; }
 .tl-2 .tl-icon { -webkit-mask-image: url("../img/drinks.png"); mask-image: url("../img/drinks.png"); }
 .tl-3 .tl-icon { -webkit-mask-image: url("../img/party.png"); mask-image: url("../img/party.png"); }
 .tl-item .tl-time { margin: .15rem 0 0; font-family: var(--text); font-size: .82rem; color: var(--doodle); }
+.tl-item .tl-note { margin: .2rem 0 0; font-family: var(--text); font-style: italic; font-size: .74rem; line-height: 1.35; color: var(--muted); }
 .tl-item h4 { margin: 0; font-size: clamp(1.05rem, 4.6cqw, 1.35rem); font-weight: 400; line-height: 1.1; letter-spacing: .04em; }
 /* Al aparecer en pantalla, el champán cae de arriba abajo y los momentos salen uno tras otro */
 html.doodles .tl-pour { clip-path: inset(0 0 100% 0); transition: clip-path 2.6s cubic-bezier(.5, 0, .3, 1); }
