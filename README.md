@@ -62,7 +62,7 @@ El formulario tiene dos botones:
 - **Confirmar**: guarda la respuesta en una hoja de Google con la lista de invitados.
   La hoja marca en rojo a quien confirma más personas de las previstas.
   Hay que configurarla una vez: ver [google-sheets/README.md](google-sheets/README.md).
-- **Por WhatsApp**: abre WhatsApp con un mensaje ya escrito para el **0416 070 22 82**
+- **Por WhatsApp**: abre WhatsApp con un mensaje ya escrito para el **0412 076 79 40**
   y además guarda la respuesta en la hoja.
 
 Para cambiar el número de WhatsApp, edita `WHATSAPP` al principio de `js/main.js` (formato internacional, sin `+`).

@@ -1,5 +1,5 @@
 (function () {
-  var WHATSAPP = "584160702282"; // 0416 070 22 82 en formato internacional
+  var WHATSAPP = "584120767940"; // 0412 076 79 40 en formato internacional
   // URL de la aplicación web de Google Apps Script (ver google-sheets/README.md). Termina en /exec
   var SHEET_URL = "";
   var WEDDING = Date.UTC(2027, 0, 9, 21, 0, 0); // 9 ene 2027, 5 p.m. hora de Venezuela (UTC-4)
@@ -225,7 +225,7 @@
   });
 
   // Dibujos a mano: se trazan cuando aparecen en pantalla
-  var doodles = document.querySelectorAll(".doodle");
+  var doodles = document.querySelectorAll(".doodle, .timeline");
   if ("IntersectionObserver" in window) {
     document.documentElement.classList.add("doodles");
     var io = new IntersectionObserver(function (entries) {
