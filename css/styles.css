@@ -351,22 +351,24 @@ html.doodles .doodle.drawn { stroke-dashoffset: 0; }
 /* Paleta de colores de Vestimenta: muestras con la misma textura de papel que el sobre */
 .detail + .detail { margin-top: 2.2rem; }
 
-/* Fondo verde muy suave a todo el ancho de la sección */
-.detail.program { position: relative; isolation: isolate; margin-top: 4rem; padding-block: 3.5rem 3rem; }
-.detail.program::before { content: ""; position: absolute; inset: -2.5rem -100vw; z-index: -1; background: linear-gradient(var(--white), #f1f4ee 6rem, #f1f4ee calc(100% - 6rem), var(--white)); }
-.detail.program + .detail { margin-top: 1.5rem; }
+.detail.program { margin-top: 3.5rem; padding-left: 0; text-align: center; }
+.detail.program + .detail { margin-top: 3.5rem; }
 
 /* Programa: la botella sirve champán en el centro y los momentos del día van a los lados */
-.timeline { position: relative; list-style: none; margin: 1.2rem 0 -1rem calc(-1 * clamp(0px, 14cqw, 120px)); padding: 0; height: clamp(28rem, 128cqw, 34rem); }
+.timeline { position: relative; list-style: none; margin: 1.2rem 0 -1rem; padding: 0; height: clamp(28rem, 128cqw, 34rem); }
 .tl-pour { position: absolute; top: 0; left: 50%; height: 100%; width: auto; transform: translateX(-46.5%); opacity: .9; pointer-events: none; }
-.tl-item { position: absolute; display: flex; align-items: center; gap: .55rem; max-width: calc(50% - 1rem); }
+.tl-item { text-align: left; position: absolute; display: flex; align-items: center; gap: .55rem; max-width: calc(50% - 1rem); }
 .tl-left { right: calc(53.5% + .9rem); }
 .tl-right { left: calc(46.5% + 2rem); }
 .tl-1 { top: 15%; }
 .tl-2 { top: 28%; }
 .tl-3 { top: 45%; }
-.tl-icon { flex: none; width: clamp(2.2rem, 9.5cqw, 2.7rem); height: auto; }
-.tl-item .tl-time { margin: .15rem 0 0; font-family: var(--text); font-size: .82rem; color: var(--muted); }
+/* Iconos en el mismo verde que el champán: el PNG hace de máscara */
+.tl-icon { flex: none; display: block; width: clamp(2.2rem, 9.5cqw, 2.7rem); aspect-ratio: 217 / 192; background: #7f9479; -webkit-mask: center / contain no-repeat; mask: center / contain no-repeat; }
+.tl-1 .tl-icon { -webkit-mask-image: url("../img/rings.png"); mask-image: url("../img/rings.png"); }
+.tl-2 .tl-icon { -webkit-mask-image: url("../img/drinks.png"); mask-image: url("../img/drinks.png"); }
+.tl-3 .tl-icon { -webkit-mask-image: url("../img/party.png"); mask-image: url("../img/party.png"); }
+.tl-item .tl-time { margin: .15rem 0 0; font-family: var(--text); font-size: .82rem; color: var(--doodle); }
 .tl-item h4 { margin: 0; font-size: clamp(1.05rem, 4.6cqw, 1.35rem); font-weight: 400; line-height: 1.1; letter-spacing: .04em; }
 /* Al aparecer en pantalla, el champán cae de arriba abajo y los momentos salen uno tras otro */
 html.doodles .tl-pour { clip-path: inset(0 0 100% 0); transition: clip-path 2.6s cubic-bezier(.5, 0, .3, 1); }
