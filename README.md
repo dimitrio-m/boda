@@ -7,14 +7,16 @@ Es una página estática (HTML, CSS y JavaScript) sin dependencias ni paso de co
 ## Estructura
 
 ```
-index.html        Página
-css/styles.css    Estilos, colores y fuentes
-js/main.js        Sobre, cuenta regresiva, calendario, dibujos, idioma y confirmaciones
-js/i18n.js        Textos en griego
-img/              Arco, ramas de olivo, acuarela del hotel y textura del sobre
-fonts/            Archivos de fuentes (ver fonts/README.md)
-audio/            Efecto al abrir y música de fondo (ver audio/README.md)
-google-sheets/    Script de la hoja de confirmaciones (ver google-sheets/README.md)
+index.html                  Página principal
+css/styles.css              Estilos, colores y fuentes
+js/main.js                  Sobre, cuenta regresiva, calendario, dibujos, idioma y confirmaciones
+js/i18n.js                  Textos en griego
+img/                        Imágenes optimizadas en WebP + tarjetas Open Graph (og-image*.jpg)
+fonts/                      Fuentes WOFF2 (y respaldo TTF; ver fonts/README.md)
+audio/                      Efecto al abrir y música de fondo (ver audio/README.md)
+functions/_middleware.js    Middleware de Cloudflare Pages (Open Graph dinámico en ES / ΕΛ)
+_headers                    Cabeceras de caché y seguridad para Cloudflare Pages
+google-sheets/              Script de la hoja de confirmaciones (ver google-sheets/README.md)
 ```
 
 ## Ver en local
@@ -26,20 +28,27 @@ python3 -m http.server 8000
 # luego abre http://localhost:8000
 ```
 
+## Publicar en Cloudflare Pages (Recomendado)
+
+1. Sube tus cambios a GitHub (`git push`).
+2. En el panel de Cloudflare ve a **Workers & Pages → Create → Pages → Connect to Git**.
+3. Selecciona el repositorio `dimitrio-m/boda` y la rama `main`.
+4. En **Build settings**:
+   - **Framework preset**: `None`
+   - **Build command**: *(déjalo vacío)*
+   - **Build output directory**: `/` *(o vacío)*
+5. Pulsa **Save and Deploy**.
+6. Para conectar el subdominio: entra al proyecto en Cloudflare Pages → pestaña **Custom domains** → **Set up a custom domain** → escribe `wedding.dimitriosmandamadiotis.com` y confirma (Cloudflare creará el registro CNAME y el certificado SSL automáticamente).
+
+> También puedes desplegar directamente desde la terminal con:
+> ```sh
+> npx wrangler pages deploy . --project-name=boda
+> ```
+
 ## Publicar en GitHub Pages
 
-1. Crea un repositorio nuevo en GitHub (por ejemplo `boda`).
-2. Sube el contenido de esta carpeta:
-   ```sh
-   git init
-   git add .
-   git commit -m "Invitación de boda"
-   git branch -M main
-   git remote add origin https://github.com/elenimandamadioti/boda.git
-   git push -u origin main
-   ```
-3. En GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch**, rama `main`, carpeta `/ (root)`.
-4. La invitación quedará en `https://elenimandamadioti.github.io/boda/`.
+1. Sube el contenido del repositorio a GitHub en la rama `main`.
+2. En GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch**, rama `main`, carpeta `/ (root)`.
 
 ## Sonido
 
@@ -50,7 +59,8 @@ Abajo a la derecha aparece un botón de altavoz para silenciarla. Añade los arc
 
 La invitación está en **español** y **griego**, con el selector **ES / ΕΛ** arriba a la derecha.
 
-- Enlace en griego para los invitados griegos: `https://elenimandamadioti.github.io/boda/?lang=el`
+- Enlace en español: `https://wedding.dimitriosmandamadiotis.com/`
+- Enlace en griego para los invitados griegos: `https://wedding.dimitriosmandamadiotis.com/?lang=el` (en Cloudflare Pages genera automáticamente también la vista previa de WhatsApp/redes en griego).
 - Sin `?lang=`, la página usa el último idioma elegido en ese móvil o, la primera vez, el idioma del teléfono.
 - Los textos en griego están en `js/i18n.js`. El español es el texto de `index.html`.
 - Sloop Script y Brown Sugar no tienen letras griegas: en griego se usan Noto Serif Display y Literata (Google Fonts).

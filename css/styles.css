@@ -2,8 +2,8 @@
    Fuentes (ver fonts/README.md).
    Si falta algún archivo, se usa la fuente provisional de Google Fonts.
 ------------------------------------------------------------------- */
-@font-face { font-family: "Boda Script"; src: url("../fonts/Sloop-ScriptThree.ttf") format("truetype"); font-display: swap; }
-@font-face { font-family: "Boda Display"; src: url("../fonts/Brown-Sugar-Regular.ttf") format("truetype"); font-display: swap; }
+@font-face { font-family: "Boda Script"; src: url("../fonts/Sloop-ScriptThree.woff2") format("woff2"), url("../fonts/Sloop-ScriptThree.ttf") format("truetype"); font-display: swap; }
+@font-face { font-family: "Boda Display"; src: url("../fonts/Brown-Sugar-Regular.woff2") format("woff2"), url("../fonts/Brown-Sugar-Regular.ttf") format("truetype"); font-display: swap; }
 
 :root {
   --white: #ffffff;
@@ -47,7 +47,7 @@ body {
   body { background: var(--side); }
   .page { max-width: var(--page); box-shadow: 0 0 0 1px rgba(79, 95, 75, .08), 0 20px 60px -20px rgba(47, 61, 42, .25); min-height: 100vh; }
 }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 h1, h2, h3, p { margin: 0; font-weight: 400; }
 [hidden] { display: none !important; }
 a { color: inherit; }
@@ -162,7 +162,7 @@ html.sealed { background: var(--sage-deep); }
 /* interior del sobre, visible cuando se abre la solapa */
 .env-inside {
   position: absolute; inset: 0; z-index: 1;
-  background: url("../img/paper.png") 0 0 / 320px, radial-gradient(90% 60% at 50% 30%, #3a4737, #2c3629);
+  background: url("../img/paper.webp") 0 0 / 320px, radial-gradient(90% 60% at 50% 30%, #3a4737, #2c3629);
   background-blend-mode: soft-light, normal;
   transition: opacity .8s ease 1.3s;
 }
@@ -177,10 +177,10 @@ html.sealed { background: var(--sage-deep); }
   transition: transform .9s cubic-bezier(.55, 0, .25, 1) .3s;
 }
 .env-pocket svg, .env-flap svg, .env-pocket .paper, .env-flap .paper { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-/* papel: color verde + textura (img/paper.png, gris medio) mezclada con soft-light.
+/* papel: color verde + textura (img/paper.webp, gris medio) mezclada con soft-light.
    Bolsillo y solapa empiezan en la misma esquina, así la veta del papel coincide. */
 .paper {
-  background-image: url("../img/paper.png");
+  background-image: url("../img/paper.webp");
   background-size: 320px;
   background-blend-mode: soft-light;
 }
@@ -240,7 +240,7 @@ html.sealed .portico { transform: translateY(52lvh) scale(.86); box-shadow: 0 -1
    abajo se funde con el blanco para unirse con la cuenta regresiva */
 .portico::before {
   content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: url("../img/hero-frame.jpg") top center / 100% auto no-repeat;
+  background: url("../img/hero-frame.webp") top center / 100% auto no-repeat;
   opacity: .45;
   -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
   mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
@@ -356,6 +356,7 @@ html.doodles .doodle.drawn { stroke-dashoffset: 0; }
 
 /* Programa: la botella sirve champán en el centro y los momentos del día van a los lados */
 .timeline { position: relative; list-style: none; margin: 1.2rem 0 -1rem; padding: 0; height: clamp(33rem, 150cqw, 40rem); }
+.tl-pour-wrap { position: static; }
 .tl-pour { position: absolute; top: 0; left: 50%; height: 100%; width: auto; transform: translateX(-46.5%); opacity: .9; pointer-events: none; }
 .tl-item { text-align: left; position: absolute; display: flex; align-items: center; gap: .55rem; max-width: calc(50% - 1rem); }
 .tl-left { right: calc(53.5% + .9rem); width: calc(46.5% - 1.4rem); }
@@ -364,12 +365,12 @@ html.doodles .doodle.drawn { stroke-dashoffset: 0; }
 .tl-2 { top: 22.5%; }
 .tl-3 { top: 34%; }
 .tl-4 { top: 45.5%; }
-/* Iconos en el mismo verde que el champán: el PNG hace de máscara */
+/* Iconos en el mismo verde que el champán: el WebP con transparencia hace de máscara */
 .tl-icon { flex: none; display: block; width: clamp(2.2rem, 9.5cqw, 2.7rem); aspect-ratio: 217 / 192; background: #7f9479; -webkit-mask: center / contain no-repeat; mask: center / contain no-repeat; }
-.tl-1 .tl-icon { -webkit-mask-image: url("../img/rings.png"); mask-image: url("../img/rings.png"); }
-.tl-2 .tl-icon { -webkit-mask-image: url("../img/cocktail.png"); mask-image: url("../img/cocktail.png"); transform: scale(1.45); }
-.tl-3 .tl-icon { -webkit-mask-image: url("../img/drinks.png"); mask-image: url("../img/drinks.png"); }
-.tl-4 .tl-icon { -webkit-mask-image: url("../img/party.png"); mask-image: url("../img/party.png"); }
+.tl-1 .tl-icon { -webkit-mask-image: url("../img/rings.webp"); mask-image: url("../img/rings.webp"); }
+.tl-2 .tl-icon { -webkit-mask-image: url("../img/cocktail.webp"); mask-image: url("../img/cocktail.webp"); transform: scale(1.45); }
+.tl-3 .tl-icon { -webkit-mask-image: url("../img/drinks.webp"); mask-image: url("../img/drinks.webp"); }
+.tl-4 .tl-icon { -webkit-mask-image: url("../img/party.webp"); mask-image: url("../img/party.webp"); }
 .tl-item .tl-time { margin: .15rem 0 0; font-family: var(--text); font-size: .82rem; color: var(--doodle); }
 .tl-item .tl-note { margin: .2rem 0 0; font-family: var(--text); font-size: .74rem; line-height: 1.35; color: var(--muted); }
 .tl-item h4 { margin: 0; font-size: clamp(1.05rem, 4.6cqw, 1.35rem); font-weight: 400; line-height: 1.1; letter-spacing: .04em; }
@@ -389,7 +390,7 @@ html.doodles .timeline.drawn .tl-4 { transition-delay: 2.3s; }
 .swatch {
   display: block; width: 100%; max-width: 54px; aspect-ratio: 1;
   border-radius: 48% 52% 50% 50% / 53% 47% 53% 47%;
-  background: url("../img/paper.png") center / 180px, var(--c);
+  background: url("../img/paper.webp") center / 180px, var(--c);
   background-blend-mode: soft-light;
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .06), 0 6px 12px -8px rgba(0, 0, 0, .45);
 }

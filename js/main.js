@@ -174,6 +174,11 @@
   function applyLang(code) {
     lang = code === "el" ? "el" : "es";
     root.lang = lang;
+    if (lang === "el") {
+      var gf = document.getElementById("greek-fonts");
+      if (gf && gf.media !== "all") gf.media = "all";
+    }
+    document.title = lang === "el" ? "Kaliana & Dimitrios · 09.01.2027" : "Kaliana y Dimitrios · 09.01.2027";
     var dict = window.I18N.STATIC[lang] || {};
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       if (el.dataset.es === undefined) el.dataset.es = el.textContent;
