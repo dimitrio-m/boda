@@ -7,16 +7,17 @@ Es una página estática (HTML, CSS y JavaScript) sin dependencias ni paso de co
 ## Estructura
 
 ```
-index.html                  Página principal
-css/styles.css              Estilos, colores y fuentes
-js/main.js                  Sobre, cuenta regresiva, calendario, dibujos, idioma y confirmaciones
-js/i18n.js                  Textos en griego
-img/                        Imágenes optimizadas en WebP + tarjetas Open Graph (og-image*.jpg)
-fonts/                      Fuentes WOFF2 (y respaldo TTF; ver fonts/README.md)
-audio/                      Efecto al abrir y música de fondo (ver audio/README.md)
-functions/_middleware.js    Middleware de Cloudflare Pages (Open Graph dinámico en ES / ΕΛ)
-_headers                    Cabeceras de caché y seguridad para Cloudflare Pages
-google-sheets/              Script de la hoja de confirmaciones (ver google-sheets/README.md)
+index.html        Página principal
+css/styles.css    Estilos, colores y fuentes
+js/main.js        Sobre, cuenta regresiva, calendario, dibujos, idioma y confirmaciones
+js/i18n.js        Textos en griego
+img/              Imágenes optimizadas en WebP + tarjetas Open Graph (og-image*.jpg)
+fonts/            Fuentes WOFF2 (y respaldo TTF; ver fonts/README.md)
+audio/            Efecto al abrir y música de fondo (ver audio/README.md)
+worker.js         Cloudflare Worker (Open Graph dinámico en ES / ΕΛ)
+wrangler.jsonc    Configuración de Cloudflare Workers + Static Assets
+_headers          Cabeceras de caché y seguridad para Cloudflare
+google-sheets/    Script de la hoja de confirmaciones (ver google-sheets/README.md)
 ```
 
 ## Ver en local
@@ -28,21 +29,18 @@ python3 -m http.server 8000
 # luego abre http://localhost:8000
 ```
 
-## Publicar en Cloudflare Pages (Recomendado)
+## Publicar en Cloudflare (Workers + Static Assets)
 
 1. Sube tus cambios a GitHub (`git push`).
-2. En el panel de Cloudflare ve a **Workers & Pages → Create → Pages → Connect to Git**.
-3. Selecciona el repositorio `dimitrio-m/boda` y la rama `main`.
-4. En **Build settings**:
-   - **Framework preset**: `None`
-   - **Build command**: *(déjalo vacío)*
-   - **Build output directory**: `/` *(o vacío)*
-5. Pulsa **Save and Deploy**.
-6. Para conectar el subdominio: entra al proyecto en Cloudflare Pages → pestaña **Custom domains** → **Set up a custom domain** → escribe `wedding.dimitriosmandamadiotis.com` y confirma (Cloudflare creará el registro CNAME y el certificado SSL automáticamente).
+2. En el panel de Cloudflare ve a **Workers & Pages → Create** y conecta tu repositorio `dimitrio-m/boda` (rama `main`):
+   - **Project name**: `boda` *(si usaste otro nombre en Cloudflare, pon ese mismo nombre en `"name"` dentro de `wrangler.jsonc`)*.
+   - **Build command**: *(vacío)*
+   - **Deploy command**: `npx wrangler deploy`
+3. Para conectar el subdominio: entra al Worker desplegado → **Settings → Domains & Routes → Add → Custom domain** → escribe `wedding.dimitriosmandamadiotis.com` y confirma.
 
 > También puedes desplegar directamente desde la terminal con:
 > ```sh
-> npx wrangler pages deploy . --project-name=boda
+> npx wrangler deploy
 > ```
 
 ## Publicar en GitHub Pages

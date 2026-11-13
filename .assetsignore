@@ -1,0 +1,10 @@
+worker.js
+wrangler.jsonc
+.wrangler
+google-sheets
+README.md
+*/README.md
+.nojekyll
+.git
+.gitignore
+.DS_Store

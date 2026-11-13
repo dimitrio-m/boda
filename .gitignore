@@ -15,5 +15,6 @@ img/Mediterranean Botanical Wedding Frame.png
 audio/lenspulse-foley-paper-handling-amp-page-turning-sfx-584919.mp3
 audio/prettyjohn1-wedding-wedding-music_35sec-487336.mp3
 
-# Archivos temporales de pruebas
+# Archivos temporales de pruebas y Wrangler
 _t*.html
+.wrangler/
